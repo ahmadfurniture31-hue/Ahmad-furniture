@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AHMAD FURNITURE | Luxury 3D Showroom</title>
+    
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* =========================================================
+           1. CORE VARIABLES & BASE STYLES
+           ========================================================= */
+        :root {
+            --bg-dark: #0a0806;
+            --bg-card: #14100c;
+            --bg-light: #f9f6f0;
+            --gold-primary: #d4af37;
+            --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            --gold-subtle: rgba(212, 175, 55, 0.15);
+            --text-light: #f5f5f7;
+            --text-dark: #1d1d1f;
+            --text-muted: #a1a1a6;
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+            --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, .brand-font {
+            font-family: var(--font-heading);
+            letter-spacing: 1px;
+        }
+
+        .gold-text {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .section-padding {
+            padding: 100px 8%;
+        }
+
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 60px 5%;
+            }
+        }
+
+        /* =========================================================
+           2. HEADER & NAVIGATION
+           ========================================================= */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition-smooth);
+            background: rgba(10, 8, 6, 0.6);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .header.scrolled {
+            padding: 15px 8%;
+            background: rgba(10, 8, 6, 0.95);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            text-decoration: none;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--gold-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--gold-gradient);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a:hover::after, .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-primary);
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--gold-primary);
+            cursor: pointer;
+        }
+
+        /* =========================================================
+           3. HERO SECTION (3D PARALLAX EFFECT)
+           ========================================================= */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(10,8,6,0.4), rgba(10,8,6,0.9)), 
+                        url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;
+            transform: scale(1.05);
+            transition: transform 0.1s ease-out;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 20px;
+            transform-style: preserve-3d;
+        }
+
+        .badge-experience {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gold-primary);
+            padding: 8px 20px;
+            border-radius: 50px;
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            backdrop-filter: blur(5px);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            line-height: 1.1;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #e0e0e0;
+            margin-bottom: 40px;
+            font-style: italic;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 38px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: var(--gold-gradient);
+            color: #000;
+            border: none;
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 1px solid var(--gold-primary);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold-primary);
+            transform: translateY(-3px);
+        }
+
+        /* =========================================================
+           4. ABOUT US SECTION (CREAM/BEIGE ELEGANCE)
+           ========================================================= */
+        .about-section {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .about-img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            transform: rotateY(-5deg) rotateX(2deg);
+            transition: var(--transition-smooth);
+        }
+
+        .about-image-wrapper:hover .about-img {
+            transform: rotateY(0deg) rotateX(0deg) scale(1.02);
+        }
+
+        .experience-card-3d {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            padding: 25px 35px;
+            border-radius: 8px;
+            border-left: 4px solid var(--gold-primary);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        .experience-card-3d h3 {
+            font-size: 2.5rem;
+            color: var(--gold-primary);
+            line-height: 1;
+        }
+
+        .experience-card-3d p {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #111;
+        }
+
+        .about-text p {
+            color: #555;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        /* =========================================================
+           5. CATEGORIES / COLLECTIONS
+           ========================================================= */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1rem;
+        }
+
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .collection-card {
+            position: relative;
+            height: 380px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            transform-style: preserve-3d;
+        }
+
+        .collection-card:hover {
+            transform: translateY(-10px) rotateX(4deg);
+            border-color: var(--gold-primary);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .collection-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+            filter: brightness(0.7);
+        }
+
+        .collection-card:hover .collection-img {
+            transform: scale(1.1);
+            filter: brightness(0.9);
+        }
+
+        .collection-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10,8,6,0.95) 10%, rgba(10,8,6,0) 60%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+        }
+
+        .collection-overlay h3 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .collection-overlay span {
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Brand Tag on Cards */
+        .brand-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(10, 8, 6, 0.85);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 3px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            backdrop-filter: blur(5px);
+            z-index: 3;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        /* =========================================================
+           6. FEATURED PRODUCTS (PREMIUM 3D CARDS)
+           ========================================================= */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
+        .product-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            overflow: hidden;
+            position: relative;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold-primary);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.7), 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .product-img-wrapper {
+            position: relative;
+            height: 260px;
+            overflow: hidden;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.08);
+        }
+
+        .product-info {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-category {
+            font-size: 0.75rem;
+            color: var(--gold-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .product-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 15px;
+        }
+
+        .btn-inquire {
+            background: transparent;
+            color: var(--gold-primary);
+            border: 1px solid var(--gold-primary);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-inquire:hover {
+            background: var(--gold-gradient);
+            color: #000;
+        }
+
+        /* =========================================================
+           7. CUSTOM FURNITURE (LUXURY CTA)
+           ========================================================= */
+        .custom-furniture-section {
+            background: linear-gradient(rgba(10,8,6,0.85), rgba(10,8,6,0.85)), 
+                        url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=1800&auto=format&fit=crop') center/cover fixed;
+            text-align: center;
+            position: relative;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .custom-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .custom-content h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .custom-content p {
+            font-size: 1.1rem;
+            color: #d1d1d1;
+            margin-bottom: 35px;
+        }
+
+        /* =========================================================
+           8. GALLERY & WHY CHOOSE US
+           ========================================================= */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-box {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            padding: 35px 25px;
+            border-radius: 8px;
+            text-align: center;
+            transition: var(--transition-smooth);
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold-primary);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--gold-primary);
+            margin-bottom: 20px;
+        }
+
+        .feature-box h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .feature-box p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        /* =========================================================
+           9. CONTACT & MAP SECTION
+           ========================================================= */
+        .contact-section {
+            background-color: var(--bg-dark);
+            position: relative;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 40px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gold-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-primary);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .info-text h4 {
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .info-text p, .info-text a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+        }
+
+        .info-text a:hover {
+            color: var(--gold-primary);
+        }
+
+        .action-buttons-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-call {
+            background: #1e3a8a;
+            color: #fff;
+        }
+        .btn-call:hover { background: #2563eb; }
+
+        .btn-whatsapp {
+            background: #14532d;
+            color: #fff;
+        }
+        .btn-whatsapp:hover { background: #16a34a; }
+
+        .btn-email {
+            background: #7c2d12;
+            color: #fff;
+        }
+        .btn-email:hover { background: #ea580c; }
+
+        .btn-map {
+            background: #713f12;
+            color: #fff;
+        }
+        .btn-map:hover { background: #ca8a04; }
+
+        .map-wrapper {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            height: 100%;
+            min-height: 350px;
+        }
+
+        .map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* =========================================================
+           10. FOOTER
+           ========================================================= */
+        footer {
+            background: #050403;
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+            padding: 40px 8% 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+
+        .copyright {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 20px;
+        }
+
+        /* Responsive Mobile Styles */
+        @media (max-width: 992px) {
+            .about-grid, .contact-container {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 75%;
+                height: 100vh;
+                background: rgba(10, 8, 6, 0.98);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: var(--transition-smooth);
+                border-left: 1px solid var(--gold-primary);
+            }
+            .nav-links.active {
+                right: 0;
+            }
+            .menu-btn {
+                display: block;
+                z-index: 1001;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="header" id="header">
+        <a href="#" class="logo brand-font">
+            <i class="fa-solid fa-couch"></i> AHMAD <span class="gold-text">FURNITURE</span>
+        </a>
+        <div class="menu-btn" id="menuBtn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#collections">Collections</a></li>
+            <li><a href="#featured">Featured</a></li>
+            <li><a href="#custom">Custom Order</a></li>
+            <li><a href="#why-us">Why Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+        <div class="hero-bg" id="heroBg"></div>
+        <div class="hero-content">
+            <div class="badge-experience">
+                <i class="fa-solid fa-award"></i> 30+ Years of Craftsmanship
+            </div>
+            <h1 class="brand-font">AHMAD <span class="gold-text">FURNITURE</span></h1>
+            <p>“Elegance You Deserve, Quality You Can Trust”</p>
+            <div class="btn-group">
+                <a href="#collections" class="btn btn-primary">
+                    Explore Collection <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    Contact Us <i class="fa-solid fa-phone"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT US SECTION -->
+    <section class="about-section section-padding" id="about">
+        <div class="about-grid">
+            <div class="about-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=1000&auto=format&fit=crop" alt="Luxury Showroom" class="about-img">
+                <div class="experience-card-3d">
+                    <h3>30+</h3>
+                    <p>Years Experience</p>
+                </div>
+            </div>
+            <div class="about-text">
+                <span class="gold-text" style="font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Heritage & Perfection</span>
+                <h2>Three Decades of Master Woodworking & Luxury Design</h2>
+                <p>Welcome to <strong>AHMAD FURNITURE</strong>, Islamabad’s premier destination for bespoke, handcrafted luxury furniture. With over 30 years of unwavering commitment to excellence, we bring timeless elegance into your residential and commercial spaces.</p>
+                <p>From solid wood bedroom sets to custom-tailored living space arrangements, every piece is built with precision, durability, and world-class aesthetics.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- COLLECTIONS SECTION -->
+    <section class="section-padding" id="collections">
+        <div class="section-header">
+            <span class="gold-text" style="font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Curated Showroom</span>
+            <h2>Our Signature Collections</h2>
+            <p>Explore our wide array of luxury furniture tailored for every corner of your sophisticated space.</p>
+        </div>
+        
+        <div class="collections-grid">
+            <!-- Bed Sets -->
+            <div class="collection-card">
+                <div class="brand-tag">AHMAD FURNITURE</div>
+                <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=800&auto=format&fit=crop" class="collection-img" alt="Beds & Bedroom Sets">
+                <div class="collection-overlay">
+                    <h3>Beds & Bedroom Sets</h3>
+                    <span>Royal Master Suites</span>
+                </div>
+            </div>
+
+            <!-- Sofa Sets -->
+            <div class="collection-card">
+                <div class="brand-tag">AHMAD FURNITURE</div>
+                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=800&auto=format&fit=crop" class="collection-img" alt="Sofa Sets">
+                <div class="collection-overlay">
+                    <h3>Sofa Sets & Living Room</h3>
+                    <span>Plush Comfort & Elegance</span>
+                </div>
+            </div>
+
+            <!-- Dining Sets -->
+            <div class="collection-card">
+                <div class="brand-tag">AHMAD FURNITURE</div>
+                <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?q=80&w=800&auto=format&fit=crop" class="collection-img" alt="Dining Sets">
+                <div class="collection-overlay">
+                    <h3>Dining Sets</h3>
+                    <span>Grand Dining Experiences</span>
+                </div>
+            </div>
+
+            <!-- Wooden Wardrobes -->
+            <div class="collection-card">
+                <div class="brand-tag">AHMAD FURNITURE</div>
+                <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?q=80&w=800&auto=format&fit=crop" class="collection-img" alt="Wooden Wardrobes">
+                <div class="collection-overlay">
+                    <h3>Wooden Wardrobes</h3>
+                    <span>Spacious & Stylish Storage</span>
+                </div>
+            </div>
+
+            <!-- Dressing Tables -->
+            <div class="collection-card">
+                <div class="brand-tag">AHMAD FURNITURE</div>
+                <img src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?q=80&w=800&auto=format&fit=crop" class="collection-img" alt="Dressing Tables">
+                <div class="collection-overlay">
+                    <h3>Dressing Tables</h3>
+                    <span>Modern Vanity Crafting</span>
+                </div>
+            </div>
+
+            <!-- Office Furniture -->
+            <div class="collection-card">
+                <div class="brand-tag">AHMAD FURNITURE</div>
+                <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=800&auto=format&fit=crop" class="collection-img" alt="Office Furniture">
+                <div class="collection-overlay">
+                    <h3>Office Furniture</h3>
+                    <span>Executive Desks & Seating</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED PRODUCTS -->
+    <section class="section-padding" id="featured" style="background: rgba(20, 16, 12, 0.5);">
+        <div class="section-header">
+            <span class="gold-text" style="font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Handcrafted Masterpieces</span>
+            <h2>Featured Products</h2>
+            <p>Every piece is crafted using high-grade wood, premium upholstery, and expert finishing.</p>
+        </div>
+
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="brand-tag">AHMAD FURNITURE</div>
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1540518614846-7ede433c5172?q=80&w=800&auto=format&fit=crop" alt="Royal King Bed" class="product-img">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Master Bedroom</span>
+                    <h3 class="product-title">Royal Sheesham King Bed Set</h3>
+                    <p class="product-desc">Solid wooden construction with premium tufted velvet headboard and gold trim work.</p>
+                    <div class="product-footer">
+                        <span class="gold-text" style="font-weight:700;">Custom Sizes</span>
+                        <a href="https://wa.me/923213331031?text=Hi%20Ahmad%20Furniture,%20I%20am%20interested%20in%20the%20Royal%20Sheesham%20King%20Bed%20Set." target="_blank" class="btn-inquire">Inquire Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="brand-tag">AHMAD FURNITURE</div>
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=800&auto=format&fit=crop" alt="Executive Velvet Sofa" class="product-img">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Living Room</span>
+                    <h3 class="product-title">Imperial 7-Seater Velvet Sofa</h3>
+                    <p class="product-desc">High-density foam seating wrapped in luxury stain-resistant velvet with solid wood base.</p>
+                    <div class="product-footer">
+                        <span class="gold-text" style="font-weight:700;">Custom Fabrics</span>
+                        <a href="https://wa.me/923213331031?text=Hi%20Ahmad%20Furniture,%20I%20am%20interested%20in%20the%20Imperial%20Sofa%20Set." target="_blank" class="btn-inquire">Inquire Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="brand-tag">AHMAD FURNITURE</div>
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?q=80&w=800&auto=format&fit=crop" alt="Luxury Dining Table" class="product-img">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Dining Space</span>
+                    <h3 class="product-title">8-Seater Luxury Dining Table</h3>
+                    <p class="product-desc">Polished hardwood top paired with ergonomic cushioned chairs for grand dining experiences.</p>
+                    <div class="product-footer">
+                        <span class="gold-text" style="font-weight:700;">8 / 10 Seater</span>
+                        <a href="https://wa.me/923213331031?text=Hi%20Ahmad%20Furniture,%20I%20am%20interested%20in%20the%20Luxury%20Dining%20Table." target="_blank" class="btn-inquire">Inquire Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CUSTOM FURNITURE CTA -->
+    <section class="custom-furniture-section section-padding" id="custom">
+        <div class="custom-content">
+            <span class="gold-text" style="font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Tailored Just For You</span>
+            <h2 class="brand-font">Bespoke & Custom Furniture Design</h2>
+            <p>Have a specific layout or design in mind? Our master craftsmen transform your dream interior concepts into physical reality using top-grade timber, custom fabrics, and flawless finishes.</p>
+            <a href="https://wa.me/923213331031?text=Hi%20Ahmad%20Furniture,%20I%20want%20to%20discuss%20a%20custom%20furniture%20order." target="_blank" class="btn btn-primary">
+                <i class="fa-brands fa-whatsapp"></i> Order Custom Furniture
+            </a>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="section-padding" id="why-us">
+        <div class="section-header">
+            <span class="gold-text" style="font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Our Commitment</span>
+            <h2>Why Choose Ahmad Furniture?</h2>
+            <p>Combining traditional woodwork techniques with modern design trends.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-box">
+                <div class="feature-icon"><i class="fa-solid fa-ribbon"></i></div>
+                <h3>30+ Years Experience</h3>
+                <p>Decades of mastery delivering trust, strength, and premium artistry to thousands of happy families.</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon"><i class="fa-solid fa-tree"></i></div>
+                <h3>100% Solid Wood</h3>
+                <p>We source seasoned hardwoods guaranteed against termites, warping, and weather wear.</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+                <h3>Bespoke Customization</h3>
+                <p>Pick your desired size, wood finish, polish tint, and fabric colors to suit your home décor.</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                <h3>Safe & Quick Delivery</h3>
+                <p>Hassle-free, safe transport and professional installation directly at your doorstep.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & MAP SECTION -->
+    <section class="contact-section section-padding" id="contact">
+        <div class="section-header">
+            <span class="gold-text" style="font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Get In Touch</span>
+            <h2>Visit Our Showroom</h2>
+            <p>Reach out directly or visit our Islamabad outlet to experience luxury furniture in person.</p>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-info-card">
+                <div class="info-item">
+                    <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div class="info-text">
+                        <h4>Showroom Location</h4>
+                        <p>Golra Road, Opposite CMT Gate, Furniture Market Cooperative Center, H-13 Islamabad, Pakistan</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                    <div class="info-text">
+                        <h4>Phone Lines</h4>
+                        <p><a href="tel:03213331031">0321-3331031</a></p>
+                        <p><a href="tel:03214314919">0321-4314919</a></p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+                    <div class="info-text">
+                        <h4>Email Address</h4>
+                        <p><a href="mailto:ahmadfurniture31@gmail.com">ahmadfurniture31@gmail.com</a></p>
+                    </div>
+                </div>
+
+                <!-- QUICK ACTION BUTTONS -->
+                <div class="action-buttons-group">
+                    <a href="tel:03213331031" class="action-btn btn-call">
+                        <i class="fa-solid fa-phone"></i> Call
+                    </a>
+                    <a href="https://wa.me/923213331031" target="_blank" class="action-btn btn-whatsapp">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a href="mailto:ahmadfurniture31@gmail.com" class="action-btn btn-email">
+                        <i class="fa-solid fa-envelope"></i> Email
+                    </a>
+                    <a href="https://maps.google.com/?q=Furniture+Market+Cooperative+Center+H-13+Islamabad" target="_blank" class="action-btn btn-map">
+                        <i class="fa-solid fa-map-location-dot"></i> Maps
+                    </a>
+                </div>
+            </div>
+
+            <!-- GOOGLE MAP EMBED -->
+            <div class="map-wrapper">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13280.932822416954!2d72.981881!3d33.638101!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df96615b800001%3A0x6b8a8bbd1933a251!2sH-13%20Furniture%20Market%2C%20Islamabad!5e0!3m2!1sen!2spk!4v1700000000000!5m2!1sen!2spk" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo brand-font">
+                AHMAD <span class="gold-text">FURNITURE</span>
+            </div>
+            <p style="color: var(--text-muted); max-width: 500px; font-size: 0.9rem;">
+                Elegance You Deserve, Quality You Can Trust. Bringing high-end 3D craftsmanship and luxury furniture into your home.
+            </p>
+        </div>
+        <div class="copyright">
+            &copy; 2026 AHMAD FURNITURE. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE 3D & ANIMATION JAVASCRIPT -->
+    <script>
+        // Sticky Header Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Navigation Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuBtn.querySelector('i').classList.toggle('fa-xmark');
+        });
+
+        // Close menu on nav item click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuBtn.querySelector('i').classList.remove('fa-xmark');
+            });
+        });
+
+        // Parallax Effect for Hero Section
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.scrollY;
+            const heroBg = document.getElementById('heroBg');
+            if (heroBg && scrollPos < window.innerHeight) {
+                heroBg.style.transform = `translateY(${scrollPos * 0.4}px) scale(1.05)`;
+            }
+        });
+
+        // 3D Card Tilt Dynamic Hover Effect
+        const cards = document.querySelectorAll('.product-card, .collection-card');
+        
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 15;
+                const rotateY = (centerX - x) / 15;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)`;
+            });
+        });
+    </script>
+</body>
+</html>
