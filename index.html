@@ -3,36 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AHMAD FURNITURE | Luxury Furniture Showroom</title>
+    <title>AHMED FURNITURE | Luxury Furniture Manufacturing & Sales</title>
 
-    <!-- Speed Optimization Preconnects -->
+    <!-- DNS PRECONNECT FOR SPEED OPTIMIZATION -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
-    <!-- Fonts & FontAwesome Icons -->
+    <!-- FAST-LOADING FONTS & ICONS -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
         /* =========================================================
-           DARK LUXURY DESIGN SYSTEM
+           FAST-LOADING & DARK LUXURY DESIGN SYSTEM
            ========================================================= */
         :root {
-            --bg-dark: #0e0c0a;
-            --bg-surface: #181512;
-            --bg-card: #221e19;
+            --bg-dark: #0d0b09;
+            --bg-surface: #15120e;
+            --bg-card: #1f1b16;
             --gold-primary: #d4af37;
-            --gold-light: #f5e0a0;
+            --gold-light: #f7e7a9;
             --gold-gradient: linear-gradient(135deg, #c59b27, #fdf0a6, #b38728, #996e19);
-            --text-light: #f7f5f0;
-            --text-muted: #b3a89b;
-            --border-gold: rgba(212, 175, 55, 0.22);
+            --text-light: #f8f6f0;
+            --text-muted: #b8ac9e;
+            --border-gold: rgba(212, 175, 55, 0.25);
             --border-light: rgba(255, 255, 255, 0.08);
             --font-heading: 'Cinzel', serif;
             --font-body: 'Plus Jakarta Sans', sans-serif;
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            --transition: all 0.25s ease-out;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
         }
 
         * {
@@ -48,6 +49,7 @@
             font-family: var(--font-body);
             line-height: 1.6;
             overflow-x: hidden;
+            text-rendering: optimizeSpeed;
         }
 
         h1, h2, h3, h4 {
@@ -63,14 +65,14 @@
         }
 
         .section-padding {
-            padding: 80px 5%;
+            padding: 75px 5%;
         }
 
         @media (max-width: 768px) {
             .section-padding { padding: 50px 4%; }
         }
 
-        /* BUTTON STYLES */
+        /* BUTTON SYSTEM */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -86,6 +88,7 @@
             transition: var(--transition);
             cursor: pointer;
             border: none;
+            will-change: transform;
         }
 
         .btn-gold {
@@ -96,7 +99,7 @@
 
         .btn-gold:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 22px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 8px 22px rgba(212, 175, 55, 0.45);
         }
 
         .btn-call {
@@ -132,8 +135,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(14, 12, 10, 0.94);
-            backdrop-filter: blur(12px);
+            background: rgba(13, 11, 9, 0.96);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-gold);
         }
 
@@ -144,7 +147,7 @@
             color: #fff;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 9px;
             font-family: var(--font-heading);
         }
 
@@ -153,7 +156,7 @@
         /* Navigation Sequence: Home -> Gallery -> Services -> About -> Contact */
         .nav-links {
             display: flex;
-            gap: 22px;
+            gap: 24px;
             list-style: none;
             align-items: center;
         }
@@ -192,8 +195,8 @@
             justify-content: center;
             text-align: center;
             padding-top: 90px;
-            background: linear-gradient(to bottom, rgba(14, 12, 10, 0.75), rgba(14, 12, 10, 0.95)), 
-                        url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            background: linear-gradient(to bottom, rgba(13, 11, 9, 0.75), rgba(13, 11, 9, 0.95)), 
+                        url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=75') center/cover no-repeat;
         }
 
         .hero-content {
@@ -201,31 +204,34 @@
             padding: 0 20px;
         }
 
-        .hero-subtitle {
+        .hero-badge {
             display: inline-block;
             background: rgba(212, 175, 55, 0.12);
             border: 1px solid var(--gold-primary);
-            padding: 6px 18px;
+            padding: 6px 20px;
             border-radius: 50px;
             color: var(--gold-light);
             font-size: 0.78rem;
             font-weight: 700;
             letter-spacing: 2px;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
             text-transform: uppercase;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.4rem;
             font-weight: 800;
-            margin-bottom: 15px;
+            margin-bottom: 16px;
             line-height: 1.15;
         }
 
         .hero p {
-            font-size: 1.15rem;
+            font-size: 1.12rem;
             color: var(--text-muted);
-            margin-bottom: 30px;
+            margin-bottom: 32px;
+            max-width: 760px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero-btns {
@@ -238,7 +244,7 @@
         /* SECTION HEADERS */
         .section-header {
             text-align: center;
-            margin-bottom: 45px;
+            margin-bottom: 40px;
         }
 
         .section-header span {
@@ -251,22 +257,34 @@
         }
 
         .section-header h2 {
-            font-size: 2.3rem;
+            font-size: 2.2rem;
             margin-bottom: 10px;
         }
 
         .section-header p {
             color: var(--text-muted);
-            max-width: 650px;
+            max-width: 680px;
             margin: 0 auto;
             font-size: 0.95rem;
         }
+
+        /* CATEGORY TITLE */
+        .category-title {
+            font-size: 1.3rem;
+            margin: 35px 0 20px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-gold);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .category-title i { color: var(--gold-primary); }
 
         /* PRODUCT GALLERY GRID */
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 28px;
+            gap: 25px;
         }
 
         .product-card {
@@ -278,26 +296,28 @@
             display: flex;
             flex-direction: column;
             box-shadow: var(--shadow);
+            will-change: transform;
         }
 
         .product-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-5px);
             border-color: var(--gold-primary);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.8), 0 0 20px rgba(212, 175, 55, 0.15);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.85), 0 0 18px rgba(212, 175, 55, 0.18);
         }
 
         .card-img-box {
             position: relative;
-            height: 230px;
+            height: 220px;
             overflow: hidden;
-            background: #1a1714;
+            background: #14110d;
         }
 
         .card-img-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.4s ease;
+            display: block;
         }
 
         .product-card:hover .card-img-box img {
@@ -308,7 +328,7 @@
             position: absolute;
             top: 12px;
             left: 12px;
-            background: rgba(14, 12, 10, 0.9);
+            background: rgba(13, 11, 9, 0.9);
             border: 1px solid var(--gold-primary);
             color: var(--gold-primary);
             font-size: 0.65rem;
@@ -319,7 +339,7 @@
         }
 
         .card-body {
-            padding: 20px;
+            padding: 18px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
@@ -335,7 +355,7 @@
         }
 
         .card-title {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: #fff;
             margin-bottom: 8px;
         }
@@ -343,7 +363,7 @@
         .card-desc {
             font-size: 0.85rem;
             color: var(--text-muted);
-            margin-bottom: 18px;
+            margin-bottom: 16px;
             flex-grow: 1;
         }
 
@@ -355,39 +375,61 @@
         .card-actions .btn {
             flex: 1;
             padding: 10px 6px;
-            font-size: 0.7rem;
+            font-size: 0.72rem;
         }
 
-        /* SERVICES SECTION */
+        /* SERVICES & MANUFACTURING */
         .services-section {
             background: var(--bg-surface);
             border-top: 1px solid var(--border-light);
             border-bottom: 1px solid var(--border-light);
         }
 
+        .manufacturing-banner {
+            background: linear-gradient(135deg, rgba(31, 27, 22, 0.95), rgba(21, 18, 14, 0.95)), 
+                        url('https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=1000&q=75') center/cover;
+            border: 1px solid var(--border-gold);
+            border-radius: 12px;
+            padding: 38px 25px;
+            margin-bottom: 45px;
+            text-align: center;
+        }
+
+        .manufacturing-banner h3 {
+            font-size: 1.75rem;
+            margin-bottom: 12px;
+        }
+
+        .manufacturing-banner p {
+            color: var(--text-muted);
+            max-width: 780px;
+            margin: 0 auto 22px;
+            font-size: 0.98rem;
+        }
+
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 22px;
         }
 
         .service-card {
             background: var(--bg-card);
             border: 1px solid var(--border-gold);
-            padding: 28px 20px;
+            padding: 26px 18px;
             border-radius: 8px;
             text-align: center;
             transition: var(--transition);
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
             border-color: var(--gold-primary);
         }
 
         .service-icon {
-            width: 55px;
-            height: 55px;
+            width: 52px;
+            height: 52px;
             background: rgba(212, 175, 55, 0.12);
             border: 1px solid var(--gold-primary);
             border-radius: 50%;
@@ -395,13 +437,13 @@
             align-items: center;
             justify-content: center;
             color: var(--gold-primary);
-            font-size: 1.4rem;
-            margin: 0 auto 18px;
+            font-size: 1.3rem;
+            margin: 0 auto 16px;
         }
 
         .service-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
+            font-size: 1.05rem;
+            margin-bottom: 8px;
         }
 
         .service-card p {
@@ -422,6 +464,8 @@
             overflow: hidden;
             border: 1px solid var(--border-gold);
             box-shadow: var(--shadow);
+            height: 100%;
+            min-height: 340px;
         }
 
         .about-img img {
@@ -432,17 +476,17 @@
         }
 
         .about-text h2 {
-            font-size: 2.2rem;
-            margin-bottom: 15px;
+            font-size: 2.1rem;
+            margin-bottom: 16px;
         }
 
         .about-text p {
             color: var(--text-muted);
             font-size: 0.95rem;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
         }
 
-        /* CONTACT SECTION (MAP REMOVED, WRITTEN LOCATION PRESERVED) */
+        /* CONTACT SECTION (NO GOOGLE MAP EMBED) */
         .contact-section {
             background: var(--bg-surface);
             border-top: 1px solid var(--border-light);
@@ -461,14 +505,14 @@
             gap: 16px;
             align-items: flex-start;
             background: var(--bg-card);
-            padding: 22px;
+            padding: 24px;
             border: 1px solid var(--border-gold);
             border-radius: 8px;
         }
 
         .info-icon {
-            width: 48px;
-            height: 48px;
+            width: 46px;
+            height: 46px;
             background: rgba(212, 175, 55, 0.12);
             border: 1px solid var(--gold-primary);
             border-radius: 50%;
@@ -498,7 +542,7 @@
             flex-wrap: wrap;
         }
 
-        /* FLOATING SOCIAL & CONTACT ACTION BAR (WITH TIKTOK INCLUDED) */
+        /* FLOATING SOCIAL DOCK (WITH TIKTOK) */
         .floating-social-bar {
             position: fixed;
             bottom: 22px;
@@ -510,22 +554,23 @@
         }
 
         .float-btn {
-            width: 50px;
-            height: 50px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #fff;
-            font-size: 1.35rem;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6);
+            font-size: 1.25rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.65);
             text-decoration: none;
             transition: var(--transition);
             border: 1px solid rgba(255, 255, 255, 0.15);
+            will-change: transform;
         }
 
         .float-btn:hover {
-            transform: scale(1.12) translateY(-2px);
+            transform: scale(1.1) translateY(-2px);
         }
 
         .float-call { background: #2563eb; }
@@ -536,21 +581,21 @@
 
         /* FOOTER */
         footer {
-            background: #080706;
+            background: #070605;
             border-top: 1px solid var(--border-gold);
-            padding: 55px 5% 25px;
+            padding: 50px 5% 22px;
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1.5fr;
             gap: 35px;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
         }
 
         .footer-col h4 {
             font-size: 1rem;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
             color: #fff;
         }
 
@@ -568,19 +613,17 @@
             transition: var(--transition);
         }
 
-        .footer-links a:hover {
-            color: var(--gold-primary);
-        }
+        .footer-links a:hover { color: var(--gold-primary); }
 
         .footer-bottom {
-            padding-top: 22px;
+            padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
             text-align: center;
             color: var(--text-muted);
             font-size: 0.8rem;
         }
 
-        /* RESPONSIVE */
+        /* RESPONSIVE DESIGN */
         @media (max-width: 1024px) {
             .about-grid, .footer-grid { grid-template-columns: 1fr; }
             .hero h1 { font-size: 2.7rem; }
@@ -593,7 +636,7 @@
                 right: -100%;
                 width: 78%;
                 height: 100vh;
-                background: rgba(14, 12, 10, 0.98);
+                background: rgba(13, 11, 9, 0.98);
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
@@ -609,10 +652,10 @@
 </head>
 <body>
 
-    <!-- STICKY HEADER & TOP NAVIGATION -->
+    <!-- STICKY HEADER & TOP NAVIGATION MENU -->
     <header class="header">
         <a href="#home" class="logo">
-            <i class="fa-solid fa-couch"></i> AHMAD <span class="gold-text">FURNITURE</span>
+            <i class="fa-solid fa-couch"></i> AHMED <span class="gold-text">FURNITURE</span>
         </a>
 
         <div class="menu-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></div>
@@ -633,15 +676,15 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- HERO BANNER -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <span class="hero-subtitle"><i class="fa-solid fa-crown"></i> High-End Luxury Furniture</span>
-            <h1>AHMAD <span class="gold-text">FURNITURE</span></h1>
-            <p>Master Crafted Beds • Premium Sofa Sets • Luxury Accent Chairs • Executive Desks</p>
+            <span class="hero-badge"><i class="fa-solid fa-hammer"></i> Furniture Manufacturing & Sales</span>
+            <h1>AHMED <span class="gold-text">FURNITURE</span></h1>
+            <p>We manufacture and sell high-quality furniture with modern designs, premium finishing, and durable craftsmanship for homes, offices, and commercial projects.</p>
             <div class="hero-btns">
                 <a href="#gallery" class="btn btn-gold">
-                    <i class="fa-solid fa-couch"></i> EXPLORE GALLERY
+                    <i class="fa-solid fa-couch"></i> EXPLORE CATALOGUE
                 </a>
                 <a href="tel:+923213331031" class="btn btn-call">
                     <i class="fa-solid fa-phone"></i> CALL: 0321 3331031
@@ -653,80 +696,185 @@
         </div>
     </section>
 
-    <!-- GALLERY SECTION (WITH FIXED LUXURY BED & OFFICE CHAIR IMAGES) -->
+    <!-- FURNITURE GALLERY SECTION -->
     <section class="section-padding" id="gallery">
         <div class="section-header">
-            <span class="gold-text">EXCLUSIVE COLLECTION</span>
-            <h2>Furniture Showcase</h2>
-            <p>Explore our premium bedroom, living room, and office furniture designs.</p>
+            <span class="gold-text">REAL WOODEN PRODUCT SHOWCASE</span>
+            <h2>Our Furniture Collection</h2>
+            <p>Direct from factory manufacturing to direct customer sales. Explore our luxury wooden furniture options.</p>
         </div>
 
+        <!-- 1. BEDROOM FURNITURE -->
+        <h3 class="category-title"><i class="fa-solid fa-bed"></i> Bedroom Furniture</h3>
         <div class="product-grid">
 
-            <!-- LUXURY FURNITURE BED (FIXED IMAGE) -->
+            <!-- Luxury Wooden Bed -->
             <div class="product-card">
                 <div class="card-img-box">
-                    <span class="badge-tag">Poshish Bed</span>
-                    <img src="https://images.unsplash.com/photo-1540518614846-7ede433c5163?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Luxury Tufted Velvet Bed">
+                    <span class="badge-tag">Master Bed</span>
+                    <img src="https://images.unsplash.com/photo-1540518614846-7ede433c5163?auto=format&fit=crop&w=600&q=80" loading="lazy" alt="Luxury Wooden Bed Set">
                 </div>
                 <div class="card-body">
-                    <span class="card-category">Beds</span>
-                    <h3 class="card-title">Luxury Tufted Velvet Bed</h3>
-                    <p class="card-desc">Plush velvet poshish bed set with deep diamond tufting and Master foam cushioning.</p>
+                    <span class="card-category">Bedroom Furniture</span>
+                    <h3 class="card-title">Luxury Wooden King Bed</h3>
+                    <p class="card-desc">Handcrafted seasoned solid wood king frame with plush diamond tufted poshish headboard.</p>
                     <div class="card-actions">
                         <a href="tel:+923213331031" class="btn btn-call"><i class="fa-solid fa-phone"></i> CALL</a>
-                        <a href="https://wa.me/923213331031?text=Inquiry%20for%20Luxury%20Tufted%20Velvet%20Bed" target="_blank" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> ORDER</a>
+                        <a href="https://wa.me/923213331031?text=Inquiry%20for%20Luxury%20Wooden%20King%20Bed" target="_blank" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> ORDER</a>
                     </div>
                 </div>
             </div>
 
-            <!-- SOFA SET -->
+            <!-- Modern Bedroom Furniture Set -->
             <div class="product-card">
                 <div class="card-img-box">
-                    <span class="badge-tag">Living Room</span>
-                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Emerald Luxury Sofa Set">
+                    <span class="badge-tag">Complete Suite</span>
+                    <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=600&q=80" loading="lazy" alt="Modern Bedroom Furniture Suite">
                 </div>
                 <div class="card-body">
-                    <span class="card-category">Sofas</span>
-                    <h3 class="card-title">Emerald Velvet Sofa Set</h3>
-                    <p class="card-desc">Deep plush 7-seater couch set with stain-resistant velvet and polished brass legs.</p>
+                    <span class="card-category">Bedroom Furniture</span>
+                    <h3 class="card-title">Modern Bedroom Set</h3>
+                    <p class="card-desc">Complete bedroom setup including king bed, side tables, and matching accent lighting elements.</p>
                     <div class="card-actions">
                         <a href="tel:+923213331031" class="btn btn-call"><i class="fa-solid fa-phone"></i> CALL</a>
-                        <a href="https://wa.me/923213331031?text=Inquiry%20for%20Emerald%20Velvet%20Sofa" target="_blank" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> ORDER</a>
+                        <a href="https://wa.me/923213331031?text=Inquiry%20for%20Modern%20Bedroom%20Set" target="_blank" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> ORDER</a>
                     </div>
                 </div>
             </div>
 
-            <!-- OFFICE CHAIR (FIXED IMAGE) -->
+            <!-- Wooden Wardrobe -->
             <div class="product-card">
                 <div class="card-img-box">
-                    <span class="badge-tag">Executive Office</span>
-                    <img src="https://images.unsplash.com/photo-1580481072645-022f9a6d83d0?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="High Back Executive Boss Chair">
+                    <span class="badge-tag">Storage</span>
+                    <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=600&q=80" loading="lazy" alt="Wooden Wardrobe Almirah">
                 </div>
                 <div class="card-body">
-                    <span class="card-category">Chairs / Office</span>
+                    <span class="card-category">Bedroom Furniture</span>
+                    <h3 class="card-title">Wooden Luxury Wardrobe</h3>
+                    <p class="card-desc">Spacious 4-door wooden almirah with internal sliding drawers and custom lacquer coat finish.</p>
+                    <div class="card-actions">
+                        <a href="tel:+923213331031" class="btn btn-call"><i class="fa-solid fa-phone"></i> CALL</a>
+                        <a href="https://wa.me/923213331031?text=Inquiry%20for%20Wooden%20Luxury%20Wardrobe" target="_blank" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> ORDER</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dressing Table -->
+            <div class="product-card">
+                <div class="card-img-box">
+                    <span class="badge-tag">Dressing Vanity</span>
+                    <img src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&w=600&q=80" loading="lazy" alt="Royal Wooden Dressing Table">
+                </div>
+                <div class="card-body">
+                    <span class="card-category">Bedroom Furniture</span>
+                    <h3 class="card-title">Royal Dressing Table</h3>
+                    <p class="card-desc">Elegantly carved wooden vanity table with vanity mirror and soft-close storage compartments.</p>
+                    <div class="card-actions">
+                        <a href="tel:+923213331031" class="btn btn-call"><i class="fa-solid fa-phone"></i> CALL</a>
+                        <a href="https://wa.me/923213331031?text=Inquiry%20for%20Royal%20Dressing%20Table" target="_blank" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> ORDER</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bedside Tables -->
+            <div class="product-card">
+                <div class="card-img-box">
+                    <span class="badge-tag">Nightstand</span>
+                    <img src="https://images.unsplash.com/photo-1532323544230-7191fd51bc1b?auto=format&fit=crop&w=600&q=80" loading="lazy" alt="Solid Wood Bedside Table">
+                </div>
+                <div class="card-body">
+                    <span class="card-category">Bedroom Furniture</span>
+                    <h3 class="card-title">Wooden Bedside Table</h3>
+                    <p class="card-desc">Solid wood nightstand crafted to match our luxury bedroom set designs.</p>
+                    <div class="card-actions">
+                        <a href="tel:+923213331031" class="btn btn-call"><i class="fa-solid fa-phone"></i> CALL</a>
+                        <a href="https://wa.me/923213331031?text=Inquiry%20for%20Wooden%20Bedside%20Table" target="_blank" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> ORDER</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 2. LIVING ROOM FURNITURE -->
+        <h3 class="category-title"><i class="fa-solid fa-couch"></i> Living Room Furniture</h3>
+        <div class="product-grid">
+
+            <!-- Sofa Set -->
+            <div class="product-card">
+                <div class="card-img-box">
+                    <span class="badge-tag">7-Seater Sofa</span>
+                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=80" loading="lazy" alt="Emerald Velvet Sofa Set">
+                </div>
+                <div class="card-body">
+                    <span class="card-category">Living Room Furniture</span>
+                    <h3 class="card-title">Luxury Velvet Sofa Set</h3>
+                    <p class="card-desc">Plush high-density Master foam sofa set with stain-resistant velvet and polished wood trim.</p>
+                    <div class="card-actions">
+                        <a href="tel:+923213331031" class="btn btn-call"><i class="fa-solid fa-phone"></i> CALL</a>
+                        <a href="https://wa.me/923213331031?text=Inquiry%20for%20Luxury%20Velvet%20Sofa%20Set" target="_blank" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> ORDER</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 3. DINING ROOM FURNITURE -->
+        <h3 class="category-title"><i class="fa-solid fa-utensils"></i> Dining Room Furniture</h3>
+        <div class="product-grid">
+
+            <!-- Dining Table & Chairs -->
+            <div class="product-card">
+                <div class="card-img-box">
+                    <span class="badge-tag">8-Person Dining</span>
+                    <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=600&q=80" loading="lazy" alt="Solid Wood Dining Table Set">
+                </div>
+                <div class="card-body">
+                    <span class="card-category">Dining Room Furniture</span>
+                    <h3 class="card-title">Wooden Dining Table & Chairs</h3>
+                    <p class="card-desc">Solid wooden dining table featuring 8 cushioned upholstered dining chairs with walnut gloss finish.</p>
+                    <div class="card-actions">
+                        <a href="tel:+923213331031" class="btn btn-call"><i class="fa-solid fa-phone"></i> CALL</a>
+                        <a href="https://wa.me/923213331031?text=Inquiry%20for%20Dining%20Table%20and%20Chairs" target="_blank" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> ORDER</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 4. OFFICE FURNITURE -->
+        <h3 class="category-title"><i class="fa-solid fa-briefcase"></i> Office Furniture</h3>
+        <div class="product-grid">
+
+            <!-- Office Table -->
+            <div class="product-card">
+                <div class="card-img-box">
+                    <span class="badge-tag">Executive Desk</span>
+                    <img src="https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=600&q=80" loading="lazy" alt="Executive Wooden Office Table">
+                </div>
+                <div class="card-body">
+                    <span class="card-category">Office Furniture</span>
+                    <h3 class="card-title">Executive Wooden Office Table</h3>
+                    <p class="card-desc">Spacious mahogany finished executive manager desk with built-in drawer units and wire management.</p>
+                    <div class="card-actions">
+                        <a href="tel:+923213331031" class="btn btn-call"><i class="fa-solid fa-phone"></i> CALL</a>
+                        <a href="https://wa.me/923213331031?text=Inquiry%20for%20Executive%20Office%20Table" target="_blank" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> ORDER</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Office Chair -->
+            <div class="product-card">
+                <div class="card-img-box">
+                    <span class="badge-tag">Ergonomic</span>
+                    <img src="https://images.unsplash.com/photo-1580481072645-022f9a6d83d0?auto=format&fit=crop&w=600&q=80" loading="lazy" alt="Executive Boss Office Chair">
+                </div>
+                <div class="card-body">
+                    <span class="card-category">Office Furniture</span>
                     <h3 class="card-title">High-Back Executive Boss Chair</h3>
-                    <p class="card-desc">Ergonomic leatherette boss chair with recline tilt, lumbar support, and hydraulic adjust.</p>
+                    <p class="card-desc">Ergonomic leatherette revolving boss chair with tilt tension control and adjustable hydraulic lift.</p>
                     <div class="card-actions">
                         <a href="tel:+923213331031" class="btn btn-call"><i class="fa-solid fa-phone"></i> CALL</a>
-                        <a href="https://wa.me/923213331031?text=Inquiry%20for%20High-Back%20Executive%20Boss%20Chair" target="_blank" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> ORDER</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ACCENT ARMCHAIR -->
-            <div class="product-card">
-                <div class="card-img-box">
-                    <span class="badge-tag">Accent Chair</span>
-                    <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Royal Velvet Accent Chair">
-                </div>
-                <div class="card-body">
-                    <span class="card-category">Chairs</span>
-                    <h3 class="card-title">Royal Velvet Accent Armchair</h3>
-                    <p class="card-desc">Curved lounge chair designed for drawing rooms, bedrooms, and executive corners.</p>
-                    <div class="card-actions">
-                        <a href="tel:+923213331031" class="btn btn-call"><i class="fa-solid fa-phone"></i> CALL</a>
-                        <a href="https://wa.me/923213331031?text=Inquiry%20for%20Royal%20Velvet%20Accent%20Armchair" target="_blank" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> ORDER</a>
+                        <a href="https://wa.me/923213331031?text=Inquiry%20for%20Executive%20Boss%20Chair" target="_blank" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> ORDER</a>
                     </div>
                 </div>
             </div>
@@ -734,31 +882,48 @@
         </div>
     </section>
 
-    <!-- SERVICES SECTION -->
+    <!-- MANUFACTURING & SERVICES SECTION -->
     <section class="section-padding services-section" id="services">
+        
+        <!-- MANUFACTURING HIGHLIGHT BOX -->
+        <div class="manufacturing-banner">
+            <span class="gold-text"><i class="fa-solid fa-industry"></i> FACTORY DIRECT TO CONSUMER</span>
+            <h3>Furniture Manufacturing & Direct Sales</h3>
+            <p>We manufacture and sell high-quality furniture with modern designs, premium finishing, and durable craftsmanship. We handle customized orders for homes, offices, corporate spaces, and complete bridal packages.</p>
+            <a href="https://wa.me/923213331031?text=I%20want%20to%20discuss%20a%20custom%20manufacturing%20order" target="_blank" class="btn btn-gold">
+                <i class="fa-solid fa-hammer"></i> DISCUSS CUSTOM MANUFACTURING ORDER
+            </a>
+        </div>
+
         <div class="section-header">
-            <span class="gold-text">WHAT WE OFFER</span>
-            <h2>Our Custom Services</h2>
-            <p>From custom woodworking to complete home interior design solutions.</p>
+            <span class="gold-text">COMPREHENSIVE SERVICES</span>
+            <h2>What We Provide</h2>
+            <p>From custom woodworking to showroom direct sales.</p>
         </div>
 
         <div class="services-grid">
             <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-ruler-combined"></i></div>
-                <h3>Custom Orders</h3>
-                <p>Tailor-made beds, sofas, and wardrobes created specifically to fit your room dimensions and color schemes.</p>
+                <div class="service-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                <h3>Custom Manufacturing</h3>
+                <p>Tailor-made beds, wardrobes, and sofa sets built according to your precise dimensions, wood preference, and fabric choices.</p>
             </div>
 
             <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-gem"></i></div>
-                <h3>Premium Upholstery</h3>
-                <p>High-grade imported velvet, leatherette, and fabric poshish crafted with long-lasting Master foam.</p>
+                <div class="service-icon"><i class="fa-solid fa-store"></i></div>
+                <h3>Showroom Sales</h3>
+                <p>Ready-to-ship luxury furniture available directly at our Islamabad showroom for immediate purchase.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-building"></i></div>
+                <h3>Office & Commercial Setup</h3>
+                <p>Complete office table, executive desk, workstation, and staff chair solutions for corporate setups.</p>
             </div>
 
             <div class="service-card">
                 <div class="service-icon"><i class="fa-solid fa-truck-fast"></i></div>
-                <h3>Safe Doorstep Delivery</h3>
-                <p>Hassle-free, safe transport and professional assembly service at your home or office.</p>
+                <h3>Safe Delivery & Assembly</h3>
+                <p>Doorstep delivery with safe handling and professional fitting service right at your home or office space.</p>
             </div>
         </div>
     </section>
@@ -767,24 +932,24 @@
     <section class="section-padding" id="about">
         <div class="about-grid">
             <div class="about-img">
-                <img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="About Ahmad Furniture Showroom">
+                <img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="AHMED FURNITURE Showroom & Workshop">
             </div>
             <div class="about-text">
-                <span class="gold-text">OUR HERITAGE</span>
-                <h2>Crafting Comfort & Elegance</h2>
-                <p>At <strong>AHMAD FURNITURE</strong>, we combine traditional craftsmanship with modern design aesthetics. Whether you need a royal bridal bed set, a modern L-shape sofa, or executive office chairs, our pieces are built to last with high-density materials and seasoned wood.</p>
-                <p>Visit our Islamabad showroom to experience physical comfort, view fabric samples, and get expert consultation for your home.</p>
-                <a href="tel:+923213331031" class="btn btn-gold"><i class="fa-solid fa-phone"></i> TALK TO OUR DESIGNER</a>
+                <span class="gold-text">ABOUT AHMED FURNITURE</span>
+                <h2>Craftsmanship You Can Trust</h2>
+                <p>At <strong>AHMED FURNITURE</strong>, we take pride in being both a trusted manufacturer and seller of solid wood and luxury furniture. With years of experience in wood seasoning, carving, poshish upholstery, and lacquer finishing, we deliver furniture that stands the test of time.</p>
+                <p>Whether you are setting up your new home bedroom, upgrading your living room sofa, or furnishing a modern corporate office, we supply high-quality furniture tailored to your budget and taste.</p>
+                <a href="tel:+923213331031" class="btn btn-gold"><i class="fa-solid fa-phone"></i> CALL OUR EXPERTS</a>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT SECTION (GOOGLE MAP IFRAME REMOVED; WRITTEN LOCATION KEPT EXACTLY) -->
+    <!-- CONTACT SECTION (EXACT ADDRESS PRESERVED - NO GOOGLE MAP EMBED) -->
     <section class="section-padding contact-section" id="contact">
         <div class="section-header">
-            <span class="gold-text">VISIT OR CONTACT US</span>
-            <h2>Get In Touch</h2>
-            <p>Feel free to call us or visit our showroom location in Islamabad.</p>
+            <span class="gold-text">VISIT OR CALL US</span>
+            <h2>Showroom Location & Contact</h2>
+            <p>Visit our showroom or get in touch for quick orders and price inquiries.</p>
         </div>
 
         <div class="contact-card-container">
@@ -811,7 +976,7 @@
         </div>
     </section>
 
-    <!-- FLOATING SOCIAL & CONTACT BUTTONS (INCLUDES WHATSAPP, FACEBOOK, CALL & TIKTOK) -->
+    <!-- FLOATING ACTION DOCK (TIKTOK INTEGRATED WITH WHATSAPP, FB & PHONE) -->
     <div class="floating-social-bar">
         <a href="tel:+923213331031" class="float-btn float-call" title="Call Showroom">
             <i class="fa-solid fa-phone"></i>
@@ -822,7 +987,6 @@
         <a href="https://facebook.com" target="_blank" class="float-btn float-fb" title="Facebook Page">
             <i class="fa-brands fa-facebook-f"></i>
         </a>
-        <!-- TIKTOK BUTTON MOVED HERE ALONGSIDE OTHER SOCIAL BUTTONS -->
         <a href="https://vm.tiktok.com/ZS9AJcxktermW-UgfXm/" target="_blank" class="float-btn float-tiktok" title="Follow on TikTok">
             <i class="fa-brands fa-tiktok"></i>
         </a>
@@ -833,10 +997,10 @@
         <div class="footer-grid">
             <div>
                 <a href="#home" class="logo" style="margin-bottom:15px;">
-                    <i class="fa-solid fa-couch"></i> AHMAD <span class="gold-text">FURNITURE</span>
+                    <i class="fa-solid fa-couch"></i> AHMED <span class="gold-text">FURNITURE</span>
                 </a>
                 <p style="color:var(--text-muted); font-size:0.85rem;">
-                    Bespoke Handcrafted Luxury Furniture • Beds, Sofas, Accent Chairs & Office Interiors.
+                    Furniture Manufacturing & Sales • Beds, Sofas, Wardrobes, Dining Sets & Office Furniture Solutions.
                 </p>
             </div>
 
@@ -863,11 +1027,11 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 AHMAD FURNITURE. All Rights Reserved.</p>
+            <p>&copy; 2026 AHMED FURNITURE. All Rights Reserved. Furniture Manufacturing & Direct Sales.</p>
         </div>
     </footer>
 
-    <!-- SCRIPT FOR MOBILE NAVIGATION MENU -->
+    <!-- LIGHTWEIGHT SCRIPT FOR MOBILE NAVIGATION TOGGLE -->
     <script>
         const menuBtn = document.getElementById('menuBtn');
         const navLinks = document.getElementById('navLinks');
@@ -876,7 +1040,6 @@
             navLinks.classList.toggle('active');
         });
 
-        // Close mobile nav menu on link click
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
