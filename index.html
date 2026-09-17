@@ -3,27 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AHMAD FURNITURE | Luxury Showroom Islamabad</title>
+    <title>AHMAD FURNITURE | Luxury 3D Showroom Islamabad</title>
     
-    <!-- Fonts & Icons -->
+    <!-- Google Fonts & Font Awesome Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
+        /* =========================================================
+           1. STYLES & LUXURY GOLD-DARK THEME
+           ========================================================= */
         :root {
             --bg-dark: #0a0806;
             --bg-card: #14100c;
-            --bg-light: #f9f6f0;
+            --bg-light: #f7f4ee;
             --gold-primary: #d4af37;
             --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            --gold-subtle: rgba(212, 175, 55, 0.15);
             --text-light: #f5f5f7;
-            --text-dark: #111111;
+            --text-dark: #121212;
             --text-muted: #a1a1a6;
             --font-heading: 'Cinzel', serif;
             --font-body: 'Plus Jakarta Sans', sans-serif;
-            --transition: all 0.35s ease;
+            --transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         * {
@@ -61,7 +65,7 @@
             .section-padding { padding: 60px 4%; }
         }
 
-        /* HEADER */
+        /* NAVBAR */
         .header {
             position: fixed;
             top: 0;
@@ -75,6 +79,13 @@
             background: rgba(10, 8, 6, 0.85);
             backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            transition: var(--transition);
+        }
+
+        .header.scrolled {
+            padding: 14px 7%;
+            background: rgba(10, 8, 6, 0.98);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
         }
 
         .logo {
@@ -86,6 +97,8 @@
             align-items: center;
             gap: 10px;
         }
+
+        .logo i { color: var(--gold-primary); }
 
         .nav-links {
             display: flex;
@@ -120,13 +133,14 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(to bottom, rgba(10,8,6,0.4), rgba(10,8,6,0.9)), 
+            background: linear-gradient(to bottom, rgba(10,8,6,0.5), rgba(10,8,6,0.92)), 
                         url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1800&auto=format&fit=crop') center/cover no-repeat;
         }
 
         .hero-content {
             max-width: 900px;
             padding: 0 20px;
+            z-index: 2;
         }
 
         .badge-exp {
@@ -135,25 +149,27 @@
             gap: 8px;
             background: rgba(212, 175, 55, 0.15);
             border: 1px solid var(--gold-primary);
-            padding: 8px 20px;
+            padding: 8px 22px;
             border-radius: 50px;
             color: var(--gold-primary);
             font-size: 0.85rem;
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
+            backdrop-filter: blur(5px);
         }
 
         .hero h1 {
             font-size: 3.8rem;
-            font-weight: 800;
+            font-weight: 900;
             margin-bottom: 15px;
+            line-height: 1.1;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            color: #ddd;
+            font-size: 1.25rem;
+            color: #e0e0e0;
             margin-bottom: 35px;
             font-style: italic;
         }
@@ -166,7 +182,7 @@
         }
 
         .btn {
-            padding: 14px 32px;
+            padding: 15px 34px;
             font-size: 0.85rem;
             font-weight: 700;
             letter-spacing: 1.5px;
@@ -176,29 +192,33 @@
             transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            cursor: pointer;
         }
 
         .btn-primary {
             background: var(--gold-gradient);
             color: #000;
             border: none;
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 12px 28px rgba(212, 175, 55, 0.5);
         }
 
         .btn-secondary {
             background: transparent;
             color: #fff;
             border: 1px solid var(--gold-primary);
+            backdrop-filter: blur(5px);
         }
 
         .btn-secondary:hover {
             background: rgba(212, 175, 55, 0.15);
             color: var(--gold-primary);
+            transform: translateY(-3px);
         }
 
         /* SECTION HEADER */
@@ -208,119 +228,14 @@
         }
 
         .section-header h2 {
-            font-size: 2.5rem;
+            font-size: 2.6rem;
             margin-bottom: 10px;
         }
 
         .section-header p {
             color: var(--text-muted);
-            max-width: 600px;
+            max-width: 650px;
             margin: 0 auto;
-        }
-
-        /* GALLERY & PRODUCT CARDS */
-        .grid-layout {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .3d-card {
-            background: var(--bg-card);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 10px;
-            overflow: hidden;
-            position: relative;
-            transition: var(--transition);
-        }
-
-        .3d-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--gold-primary);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.8), 0 0 15px rgba(212, 175, 55, 0.2);
-        }
-
-        .card-img-wrapper {
-            position: relative;
-            height: 250px;
-            overflow: hidden;
-        }
-
-        .card-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .3d-card:hover .card-img {
-            transform: scale(1.08);
-        }
-
-        .brand-tag {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: rgba(10, 8, 6, 0.9);
-            border: 1px solid var(--gold-primary);
-            color: var(--gold-primary);
-            font-size: 0.65rem;
-            font-weight: 700;
-            padding: 4px 10px;
-            border-radius: 3px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            z-index: 2;
-        }
-
-        .card-info {
-            padding: 22px;
-        }
-
-        .card-cat {
-            font-size: 0.75rem;
-            color: var(--gold-primary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-        }
-
-        .card-title {
-            font-size: 1.25rem;
-            color: #fff;
-            margin-bottom: 8px;
-        }
-
-        .card-desc {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 18px;
-        }
-
-        .card-action {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid rgba(255,255,255,0.08);
-            padding-top: 15px;
-        }
-
-        .btn-order {
-            background: transparent;
-            color: var(--gold-primary);
-            border: 1px solid var(--gold-primary);
-            padding: 7px 15px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-decoration: none;
-            text-transform: uppercase;
-            transition: var(--transition);
-        }
-
-        .btn-order:hover {
-            background: var(--gold-gradient);
-            color: #000;
         }
 
         /* ABOUT SECTION */
@@ -336,13 +251,165 @@
             align-items: center;
         }
 
-        .about-img {
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        .about-img-box {
+            position: relative;
         }
 
-        /* CONTACT & QUICK BUTTONS */
+        .about-img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .exp-badge-3d {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--bg-dark);
+            color: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            border-left: 4px solid var(--gold-primary);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+        }
+
+        /* 3D PRODUCT CARDS GRID */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .card-3d {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-3d:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold-primary);
+            box-shadow: 0 18px 35px rgba(0,0,0,0.8), 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .card-img-wrapper {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .card-3d:hover .card-img {
+            transform: scale(1.08);
+        }
+
+        /* BRAND TAG ON ALL PRODUCT CARDS */
+        .brand-tag {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(10, 8, 6, 0.9);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 5px 11px;
+            border-radius: 3px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            z-index: 2;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .card-info {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-cat {
+            font-size: 0.75rem;
+            color: var(--gold-primary);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .card-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-action {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 15px;
+        }
+
+        .btn-order {
+            background: transparent;
+            color: var(--gold-primary);
+            border: 1px solid var(--gold-primary);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+
+        .btn-order:hover {
+            background: var(--gold-gradient);
+            color: #000;
+        }
+
+        /* CUSTOM ORDER SECTION */
+        .custom-banner {
+            background: linear-gradient(rgba(10,8,6,0.88), rgba(10,8,6,0.88)), 
+                        url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=1800&auto=format&fit=crop') center/cover fixed;
+            text-align: center;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .custom-banner h2 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+        }
+
+        .custom-banner p {
+            max-width: 750px;
+            margin: 0 auto 30px;
+            color: #ddd;
+            font-size: 1.05rem;
+        }
+
+        /* CONTACT SECTION & BUTTONS */
         .contact-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -353,7 +420,7 @@
             background: var(--bg-card);
             border: 1px solid rgba(212, 175, 55, 0.2);
             padding: 35px;
-            border-radius: 10px;
+            border-radius: 12px;
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -391,8 +458,8 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            padding: 12px;
-            border-radius: 5px;
+            padding: 13px;
+            border-radius: 6px;
             font-size: 0.8rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -414,10 +481,10 @@
         .btn-map:hover { background: #ca8a04; }
 
         .map-box {
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
             border: 1px solid rgba(212, 175, 55, 0.2);
-            min-height: 350px;
+            min-height: 380px;
         }
 
         .map-box iframe {
@@ -426,32 +493,44 @@
             border: 0;
         }
 
-        /* FOOTER */
+        /* FOOTER & CREDITS */
         footer {
             background: #050403;
             border-top: 1px solid rgba(212, 175, 55, 0.2);
-            padding: 40px 7% 20px;
+            padding: 45px 7% 20px;
             text-align: center;
+        }
+
+        .copyright-text {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 10px;
         }
 
         .developer-credits {
             margin-top: 25px;
-            padding-top: 15px;
+            padding-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.08);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--gold-primary);
             letter-spacing: 1px;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .developer-credits a {
-            color: #fff;
+            color: #ffffff;
             text-decoration: none;
+            transition: var(--transition);
         }
 
+        .developer-credits a:hover {
+            color: var(--gold-primary);
+        }
+
+        /* RESPONSIVE DESIGNS */
         @media (max-width: 992px) {
             .about-grid, .contact-container { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2.5rem; }
+            .hero h1 { font-size: 2.6rem; }
             .nav-links {
                 position: fixed;
                 top: 0;
@@ -463,26 +542,28 @@
                 justify-content: center;
                 align-items: center;
                 transition: var(--transition);
+                border-left: 1px solid var(--gold-primary);
             }
             .nav-links.active { right: 0; }
             .menu-btn { display: block; z-index: 1001; }
+            .exp-badge-3d { right: 10px; bottom: -15px; }
         }
     </style>
 </head>
 <body>
 
     <!-- NAVBAR -->
-    <header class="header">
+    <header class="header" id="header">
         <a href="#" class="logo brand-font">
-            <i class="fa-solid fa-couch gold-text"></i> AHMAD <span class="gold-text">FURNITURE</span>
+            <i class="fa-solid fa-couch"></i> AHMAD <span class="gold-text">FURNITURE</span>
         </a>
         <div class="menu-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></div>
         <ul class="nav-links" id="navLinks">
             <li><a href="#hero">Home</a></li>
             <li><a href="#about">About Us</a></li>
-            <li><a href="#furniture-all">Furniture Showcase</a></li>
-            <li><a href="#custom">Custom Furniture</a></li>
-            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#furniture-catalog">Furniture Catalog</a></li>
+            <li><a href="#custom">Custom Order</a></li>
+            <li><a href="#contact">Contact & Map</a></li>
         </ul>
     </header>
 
@@ -495,148 +576,166 @@
             <h1 class="brand-font">AHMAD <span class="gold-text">FURNITURE</span></h1>
             <p>“Elegance You Deserve, Quality You Can Trust”</p>
             <div class="btn-group">
-                <a href="#furniture-all" class="btn btn-primary">
+                <a href="#furniture-catalog" class="btn btn-primary">
                     Explore Showcase <i class="fa-solid fa-arrow-right"></i>
                 </a>
                 <a href="https://wa.me/923213331031" target="_blank" class="btn btn-secondary">
-                    <i class="fa-brands fa-whatsapp"></i> Quick WhatsApp
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
+    <!-- ABOUT US SECTION -->
     <section class="about-section section-padding" id="about">
         <div class="about-grid">
-            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=1000&auto=format&fit=crop" alt="Showroom" class="about-img">
+            <div class="about-img-box">
+                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=1000&auto=format&fit=crop" alt="Luxury Showroom" class="about-img">
+                <div class="exp-badge-3d">
+                    <h3 style="font-size:2rem;" class="gold-text">30+</h3>
+                    <p style="font-size:0.75rem; text-transform:uppercase; letter-spacing:1px; color:#aaa;">Years Experience</p>
+                </div>
+            </div>
             <div>
-                <span class="gold-text" style="font-weight: 700; text-transform: uppercase;">30+ Years Legacy</span>
-                <h2 style="font-size: 2.2rem; margin: 10px 0 20px;">Master Craftsmen of Islamabad</h2>
-                <p style="color: #444; margin-bottom: 15px;">AHMAD FURNITURE specializes in premium handcrafted wooden beds, sofa sets, wardrobes, dining units, dressing tables, executive office setups, and bespoke custom furniture designs.</p>
-                <p style="color: #444;">Located in the heart of H-13 Islamabad's Cooperative Center Furniture Market, we combine timeless woodwork expertise with modern 3D luxury standards.</p>
+                <span class="gold-text" style="font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">Heritage & Perfection</span>
+                <h2 style="font-size: 2.3rem; margin: 10px 0 20px; color:#111;">Master Craftsmen of Islamabad</h2>
+                <p style="color: #444; margin-bottom: 15px; font-size: 1.02rem;">Welcome to <strong>AHMAD FURNITURE</strong>. For over 30 years, we have been crafting high-end, solid wood luxury furniture for homes, grand estates, and modern executive offices in Islamabad.</p>
+                <p style="color: #555; font-size: 0.98rem;">From royal bed sets and plush living room sofas to custom wardrobes, dining tables, and dressing units, every single piece is created with durability, premium seasoning, and world-class finish.</p>
             </div>
         </div>
     </section>
 
-    <!-- COMPLETE FURNITURE SHOWCASE (ALL TYPES) -->
-    <section class="section-padding" id="furniture-all">
+    <!-- FULL FURNITURE CATALOG (ALL TYPES) -->
+    <section class="section-padding" id="furniture-catalog">
         <div class="section-header">
-            <span class="gold-text" style="font-weight: 700; text-transform: uppercase;">Our Complete Catalog</span>
-            <h2>Luxury Furniture Collection</h2>
-            <p>High-definition photo gallery of all furniture categories available at our showroom.</p>
+            <span class="gold-text" style="font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">Curated Collection</span>
+            <h2>Luxury Furniture Showcase</h2>
+            <p>Photorealistic Ultra-HD photography of our full showroom lineup. Custom sizes & finishes available.</p>
         </div>
 
         <div class="grid-layout">
-            <!-- BEDS & BEDROOM SETS -->
-            <div class="3d-card">
+            <!-- 1. BEDS & BEDROOM SETS -->
+            <div class="card-3d">
                 <div class="brand-tag">AHMAD FURNITURE</div>
                 <div class="card-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=800&auto=format&fit=crop" alt="Royal King Bed" class="card-img">
+                    <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=800&auto=format&fit=crop" alt="Beds & Bedroom Sets" class="card-img">
                 </div>
                 <div class="card-info">
-                    <span class="card-cat">Bedroom</span>
+                    <span class="card-cat">Bedroom Furniture</span>
                     <h3 class="card-title">Royal Sheesham King Bed Set</h3>
-                    <p class="card-desc">Hand-carved solid wood frame with premium cushioned velvet headboard.</p>
+                    <p class="card-desc">Solid wood structure with deeply cushioned velvet tufted headboard and side tables.</p>
                     <div class="card-action">
-                        <span class="gold-text" style="font-weight:700;">30+ Yrs Craft</span>
-                        <a href="https://wa.me/923213331031?text=Hi%20Ahmad%20Furniture,%20I%20want%20details%20about%20Royal%20Bed%20Set" target="_blank" class="btn-order">Inquire</a>
+                        <span class="gold-text" style="font-weight:700;">Custom Sizes</span>
+                        <a href="https://wa.me/923213331031?text=Hi%20Ahmad%20Furniture,%20I%20am%20interested%20in%20Bed%20Sets." target="_blank" class="btn-order">Inquire</a>
                     </div>
                 </div>
             </div>
 
-            <!-- SOFA SETS -->
-            <div class="3d-card">
+            <!-- 2. SOFA SETS & LIVING ROOM -->
+            <div class="card-3d">
                 <div class="brand-tag">AHMAD FURNITURE</div>
                 <div class="card-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=800&auto=format&fit=crop" alt="Luxury Sofa Set" class="card-img">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=800&auto=format&fit=crop" alt="Sofa Sets" class="card-img">
                 </div>
                 <div class="card-info">
                     <span class="card-cat">Living Room</span>
-                    <h3 class="card-title">Imperial Velvet 7-Seater Sofa</h3>
-                    <p class="card-desc">High-density foam, stain-resistant velvet fabric with brass base accents.</p>
+                    <h3 class="card-title">Imperial 7-Seater Velvet Sofa Set</h3>
+                    <p class="card-desc">High-density master foam seating wrapped in luxury stain-resistant velvet fabric.</p>
                     <div class="card-action">
-                        <span class="gold-text" style="font-weight:700;">Custom Colors</span>
-                        <a href="https://wa.me/923213331031?text=Hi%20Ahmad%20Furniture,%20I%20want%20details%20about%20Imperial%20Sofa" target="_blank" class="btn-order">Inquire</a>
+                        <span class="gold-text" style="font-weight:700;">Custom Fabric</span>
+                        <a href="https://wa.me/923213331031?text=Hi%20Ahmad%20Furniture,%20I%20am%20interested%20in%20Sofa%20Sets." target="_blank" class="btn-order">Inquire</a>
                     </div>
                 </div>
             </div>
 
-            <!-- DINING SETS -->
-            <div class="3d-card">
+            <!-- 3. DINING SETS -->
+            <div class="card-3d">
                 <div class="brand-tag">AHMAD FURNITURE</div>
                 <div class="card-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?q=80&w=800&auto=format&fit=crop" alt="Dining Table" class="card-img">
+                    <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?q=80&w=800&auto=format&fit=crop" alt="Dining Sets" class="card-img">
                 </div>
                 <div class="card-info">
                     <span class="card-cat">Dining Space</span>
-                    <h3 class="card-title">8-Seater Hardwood Dining Set</h3>
-                    <p class="card-desc">High-gloss polish wood top with ergonomically cushioned chairs.</p>
+                    <h3 class="card-title">8-Seater Grand Wooden Dining Table</h3>
+                    <p class="card-desc">High-gloss polish solid hardwood top with ergonomically sculpted dining chairs.</p>
                     <div class="card-action">
-                        <span class="gold-text" style="font-weight:700;">8/10 Seater</span>
-                        <a href="https://wa.me/923213331031?text=Hi%20Ahmad%20Furniture,%20I%20want%20details%20about%20Dining%20Set" target="_blank" class="btn-order">Inquire</a>
+                        <span class="gold-text" style="font-weight:700;">6 / 8 / 10 Seater</span>
+                        <a href="https://wa.me/923213331031?text=Hi%20Ahmad%20Furniture,%20I%20am%20interested%20in%20Dining%20Sets." target="_blank" class="btn-order">Inquire</a>
                     </div>
                 </div>
             </div>
 
-            <!-- WOODEN WARDROBES -->
-            <div class="3d-card">
+            <!-- 4. WOODEN WARDROBES -->
+            <div class="card-3d">
                 <div class="brand-tag">AHMAD FURNITURE</div>
                 <div class="card-img-wrapper">
                     <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?q=80&w=800&auto=format&fit=crop" alt="Wooden Wardrobe" class="card-img">
                 </div>
                 <div class="card-info">
-                    <span class="card-cat">Storage</span>
+                    <span class="card-cat">Storage Solution</span>
                     <h3 class="card-title">4-Door Custom Wooden Wardrobe</h3>
-                    <p class="card-desc">Termite-proof treated wood with spacious inner drawers and mirrors.</p>
+                    <p class="card-desc">Termite-proof seasoned wood with spacious internal drawers, shelves, and mirrors.</p>
                     <div class="card-action">
-                        <span class="gold-text" style="font-weight:700;">Bespoke Sizes</span>
-                        <a href="https://wa.me/923213331031?text=Hi%20Ahmad%20Furniture,%20I%20want%20details%20about%20Wardrobe" target="_blank" class="btn-order">Inquire</a>
+                        <span class="gold-text" style="font-weight:700;">Built-to-Fit</span>
+                        <a href="https://wa.me/923213331031?text=Hi%20Ahmad%20Furniture,%20I%20am%20interested%20in%20Wardrobes." target="_blank" class="btn-order">Inquire</a>
                     </div>
                 </div>
             </div>
 
-            <!-- DRESSING TABLES -->
-            <div class="3d-card">
+            <!-- 5. DRESSING TABLES -->
+            <div class="card-3d">
                 <div class="brand-tag">AHMAD FURNITURE</div>
                 <div class="card-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?q=80&w=800&auto=format&fit=crop" alt="Dressing Table" class="card-img">
+                    <img src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?q=80&w=800&auto=format&fit=crop" alt="Dressing Tables" class="card-img">
                 </div>
                 <div class="card-info">
-                    <span class="card-cat">Vanity</span>
-                    <h3 class="card-title">Modern LED Vanity Dressing Table</h3>
-                    <p class="card-desc">Contemporary layout with gold inlay accents and soft-closing drawers.</p>
+                    <span class="card-cat">Vanity & Dressing</span>
+                    <h3 class="card-title">Luxury LED Vanity Dressing Table</h3>
+                    <p class="card-desc">Modern glass finish vanity table with gold inlay trimmings and soft-close drawers.</p>
                     <div class="card-action">
-                        <span class="gold-text" style="font-weight:700;">Luxury Polish</span>
-                        <a href="https://wa.me/923213331031?text=Hi%20Ahmad%20Furniture,%20I%20want%20details%20about%20Dressing%20Table" target="_blank" class="btn-order">Inquire</a>
+                        <span class="gold-text" style="font-weight:700;">Luxury Finish</span>
+                        <a href="https://wa.me/923213331031?text=Hi%20Ahmad%20Furniture,%20I%20am%20interested%20in%20Dressing%20Tables." target="_blank" class="btn-order">Inquire</a>
                     </div>
                 </div>
             </div>
 
-            <!-- EXECUTIVE OFFICE FURNITURE -->
-            <div class="3d-card">
+            <!-- 6. EXECUTIVE OFFICE FURNITURE -->
+            <div class="card-3d">
                 <div class="brand-tag">AHMAD FURNITURE</div>
                 <div class="card-img-wrapper">
                     <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=800&auto=format&fit=crop" alt="Office Furniture" class="card-img">
                 </div>
                 <div class="card-info">
-                    <span class="card-cat">Commercial</span>
-                    <h3 class="card-title">Executive Office Desk & Chair</h3>
-                    <p class="card-desc">Ergonomic director chairs, large executive desks, and file cabinets.</p>
+                    <span class="card-cat">Commercial Office</span>
+                    <h3 class="card-title">Executive Director Desk & Seating</h3>
+                    <p class="card-desc">Ergonomic leather chairs, large executive desk suites, and conference setups.</p>
                     <div class="card-action">
                         <span class="gold-text" style="font-weight:700;">Corporate</span>
-                        <a href="https://wa.me/923213331031?text=Hi%20Ahmad%20Furniture,%20I%20want%20details%20about%20Office%20Furniture" target="_blank" class="btn-order">Inquire</a>
+                        <a href="https://wa.me/923213331031?text=Hi%20Ahmad%20Furniture,%20I%20am%20interested%20in%20Office%20Furniture." target="_blank" class="btn-order">Inquire</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- CUSTOM FURNITURE SECTION -->
+    <section class="custom-banner section-padding" id="custom">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <span class="gold-text" style="font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">Bespoke Woodworking</span>
+            <h2 class="brand-font">Tailored & Custom Furniture Orders</h2>
+            <p>Have a custom design or architectural plan in mind? Share your concept photos with us on WhatsApp and our master craftsmen will create it to perfection.</p>
+            <a href="https://wa.me/923213331031?text=Hi%20Ahmad%20Furniture,%20I%20want%20to%20discuss%20a%20Custom%20Furniture%20order." target="_blank" class="btn btn-primary">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp Custom Order
+            </a>
+        </div>
+    </section>
+
     <!-- CONTACT & MAP SECTION -->
-    <section class="section-padding" id="contact" style="background: rgba(20, 16, 12, 0.6);">
+    <section class="section-padding" id="contact" style="background: rgba(20, 16, 12, 0.7);">
         <div class="section-header">
-            <span class="gold-text" style="font-weight: 700; text-transform: uppercase;">Connect With Us</span>
-            <h2>Visit Showroom Or Contact</h2>
-            <p>Direct communication triggers for calls, WhatsApp, TikTok catalog, and live map navigation.</p>
+            <span class="gold-text" style="font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">Direct Contact</span>
+            <h2>Visit Our Showroom</h2>
+            <p>Call us directly, message on WhatsApp, check our TikTok videos, or get Google Maps route.</p>
         </div>
 
         <div class="contact-container">
@@ -645,7 +744,7 @@
                     <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
                     <div>
                         <h4 style="color: #fff;">Showroom Address</h4>
-                        <p style="color: var(--text-muted); font-size: 0.9rem;">
+                        <p style="color: var(--text-muted); font-size: 0.92rem;">
                             Golra Road, Opposite CMT Gate, Furniture Market Cooperative Center, H-13 Islamabad, Pakistan
                         </p>
                     </div>
@@ -655,8 +754,8 @@
                     <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
                     <div>
                         <h4 style="color: #fff;">Phone Numbers</h4>
-                        <p style="color: var(--text-muted); font-size: 0.9rem;">
-                            <a href="tel:03213331031" style="color: #fff; text-decoration: none;">0321-3331031</a> / 
+                        <p style="color: var(--text-muted); font-size: 0.92rem;">
+                            <a href="tel:03213331031" style="color: #fff; text-decoration: none;">0321-3331031</a><br>
                             <a href="tel:03214314919" style="color: #fff; text-decoration: none;">0321-4314919</a>
                         </p>
                     </div>
@@ -666,16 +765,16 @@
                     <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
                     <div>
                         <h4 style="color: #fff;">Email Address</h4>
-                        <p style="color: var(--text-muted); font-size: 0.9rem;">
+                        <p style="color: var(--text-muted); font-size: 0.92rem;">
                             <a href="mailto:ahmadfurniture31@gmail.com" style="color: #fff; text-decoration: none;">ahmadfurniture31@gmail.com</a>
                         </p>
                     </div>
                 </div>
 
-                <!-- ACTION BUTTONS (CALL, WHATSAPP, TIKTOK, GOOGLE MAPS) -->
+                <!-- ALL ACTION BUTTONS (CALL, WHATSAPP, TIKTOK, MAP) -->
                 <div class="action-btns-grid">
                     <a href="tel:03213331031" class="action-btn btn-call">
-                        <i class="fa-solid fa-phone"></i> Call Now
+                        <i class="fa-solid fa-phone"></i> Call
                     </a>
                     <a href="https://wa.me/923213331031" target="_blank" class="action-btn btn-whatsapp">
                         <i class="fa-brands fa-whatsapp"></i> WhatsApp
@@ -684,12 +783,12 @@
                         <i class="fa-brands fa-tiktok"></i> TikTok
                     </a>
                     <a href="https://maps.app.goo.gl/zRkaKRyuT7Fzcqer6" target="_blank" class="action-btn btn-map">
-                        <i class="fa-solid fa-map-location-dot"></i> Google Map
+                        <i class="fa-solid fa-map-location-dot"></i> Google Maps
                     </a>
                 </div>
             </div>
 
-            <!-- EMBEDDED MAP -->
+            <!-- EMBEDDED GOOGLE MAP -->
             <div class="map-box">
                 <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13280.932822416954!2d72.981881!3d33.638101!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df96615b800001%3A0x6b8a8bbd1933a251!2sH-13%20Furniture%20Market%2C%20Islamabad!5e0!3m2!1sen!2spk!4v1700000000000!5m2!1sen!2spk" 
@@ -702,22 +801,32 @@
 
     <!-- FOOTER -->
     <footer>
-        <div class="brand-font" style="font-size: 1.6rem; margin-bottom: 10px;">
+        <div class="brand-font" style="font-size: 1.8rem;">
             AHMAD <span class="gold-text">FURNITURE</span>
         </div>
-        <p style="color: var(--text-muted); font-size: 0.85rem;">
+        <p class="copyright-text">
             &copy; 2026 AHMAD FURNITURE. All Rights Reserved.
         </p>
-        
-        <!-- DEVELOPER CREDIT -->
+
+        <!-- DEVELOPER CREDITS -->
         <div class="developer-credits">
-            Made by <a href="tel:03212816273">mughaledits</a> | Phone: <a href="tel:03212816273">03212816273</a>
+            Made by <a href="tel:03212816273">mughaledits</a> | Contact Developer: <a href="tel:03212816273">03212816273</a>
         </div>
     </footer>
 
     <!-- INTERACTIVE JAVASCRIPT -->
     <script>
-        // Mobile Navigation Toggle
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
         const menuBtn = document.getElementById('menuBtn');
         const navLinks = document.getElementById('navLinks');
 
@@ -725,17 +834,24 @@
             navLinks.classList.toggle('active');
         });
 
-        // 3D Card Hover Tilt Effect
-        const cards = document.querySelectorAll('.3d-card');
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // 3D Tilt Effect on Hover for Cards
+        const cards = document.querySelectorAll('.card-3d');
         cards.forEach(card => {
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left - (rect.width / 2);
                 const y = e.clientY - rect.top - (rect.height / 2);
-                card.style.transform = `perspective(1000px) rotateX(${-y / 12}deg) rotateY(${x / 12}deg) translateY(-8px)`;
+                card.style.transform = `perspective(1000px) rotateX(${-y / 15}deg) rotateY(${x / 15}deg) translateY(-8px)`;
             });
+            
             card.addEventListener('mouseleave', () => {
-                card.style.transform = `perspective(1000px) rotateX(0) rotateY(0) translateY(0)`;
+                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)`;
             });
         });
     </script>
